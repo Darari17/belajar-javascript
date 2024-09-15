@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        constructor(firstName, lastName, username, age) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.username = username;
+          this.age = age;
+        }
+
+        #getFullname() {
+          return `${this.firstName} ${this.lastName}`;
+        }
+
+        greeting() {
+          return `Hello, ${this.#getFullname}`;
+        }
+      }
+
+      class Admin extends User {
+        constructor(firstName, lastName, username, age, division) {
+          super(firstName, lastName, username, age);
+          this.division = division;
+        }
+      }
+
+      const user = new User("farid", "rhamadhan", "faridrd", 28);
+      const admin = new Admin("naruto", "uzumaki", "hokage", 40, "Sales");
+
+      console.log(user);
+      console.log(admin);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        constructor(firstName, lastName, username, age) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.username = username;
+          this.age = age;
+        }
+
+        #getFullname() {
+          return `${this.firstName} ${this.lastName}`;
+        }
+
+        greeting() {
+          return `Hello, ${this.#getFullname}`;
+        }
+      }
+
+      const user1 = new User("farid", "rhamadhan", "faridrd", 28);
+      // prototype adalah template dimana object ini berasal.
+      console.log(user1);
+    </script>
+  </body>
+</html>

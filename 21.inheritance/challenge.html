@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class CarFull {
+        constructor(merek, tpp, mesin, harga) {
+          this.merek = merek;
+          this.tahunPembayaranPajak = tpp;
+          this.mesin = mesin;
+          this.harga = harga;
+        }
+
+        getPajak() {
+          return `biaya pajak sebesar ${this.harga * 0.025}`;
+        }
+      }
+
+      class SuratKendaraan extends CarFull {
+        constructor(merek, tpp, mesin, harga) {
+          super(merek, tpp, mesin, harga);
+        }
+      }
+
+      const myMobil = new SuratKendaraan("Toyota", 2016, 1500, 300_000_000);
+
+      console.log(myMobil);
+      console.log(myMobil.getPajak());
+    </script>
+  </body>
+</html>

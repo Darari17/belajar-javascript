@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+
+    <h1 id="greeting">GoodBye</h1>
+
+    <input type="text" id="input-name" />
+    <button onclick="submitName()">Submit</button>
+
+    <p id="message">Hello, what is your name?</p>
+
+    <ul id="user-list"></ul>
+
+    <button onclick="changeGreeting()">Change</button>
+    <button onclick="loadUser()">Load data</button>
+
+    <!--Manipulasi DOM-->
+    <script>
+      // bisa juga menggunakan query selector
+      document.getElementsByTagName("h1")[0].innerText = "Halo Dunia";
+
+      const changeGreeting = () => {
+        document.getElementById("greeting").innerText = "Selamat Jalan";
+      };
+
+      const users = ["doraemon", "naruto", "sasuke", "nobita"];
+
+      const loadUser = () => {
+        const listSelector = document.getElementById("user-list");
+
+        listSelector.innerHTML = "";
+
+        users.forEach((user) => {
+          // membuat element baru
+          const newListItem = document.createElement("li");
+          newListItem.innerText = user;
+
+          // metode yang digunakan untuk menambahkan elemen HTML baru sebagai "anak" ke elemen yang sudah ada di DOM.
+          listSelector.appendChild(newListItem);
+        });
+      };
+
+      const submitName = () => {
+        // dapetin input nya
+        const inputName = document.getElementById("input-name").value;
+
+        // ganti nama yang ada di HTML
+        const messageSelector = document.getElementById("message");
+        messageSelector.innerText = `my name is ${inputName}. i want to be a programmer`;
+      };
+    </script>
+  </body>
+</html>
+
+<!--DOM adalah meng-connect antara html dengan bahasa pemrograman, yang dipelajari saat ini adalah javascript-->

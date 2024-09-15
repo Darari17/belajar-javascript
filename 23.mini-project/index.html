@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Project</title>
+  </head>
+  <body>
+    <h1>My Todo List</h1>
+
+    <h3><span id="todo-counter">0</span> Items</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="todo-list">
+        <!--                        *tbodySelector mengabil id dari tbody
+        <tr>                        // ini row
+          <td></td>                 // ini tdActivity
+          <td>                      // ini tdButton
+            <button></button>       // ini doneButton
+          </td>
+        </tr> 
+        -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <input id="todo-input" type="text" />
+          </td>
+          <td>
+            <button onclick="addItem()">Submit</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <script>
+      const todoItems = ["Coding", "Makan", "Mandi"];
+
+      // function untuk menampilkan item didalam tabel
+      const loadItems = () => {
+        // buat variabel yang diabmil dari tag tbody yang berisi id "todo-list"
+        const tbodySelector = document.getElementById("todo-list");
+        tbodySelector.innerHTML = "";
+
+        todoItems.forEach((item, index) => {
+          // buat tag table row, table data dan button yang akan dimasukkan kedalam tbody
+          const row = document.createElement("tr");
+          const tdActivity = document.createElement("td");
+          const tdButton = document.createElement("td");
+          const doneButton = document.createElement("button");
+
+          // tdActivity diisi dengan todoItems yang sudah dilooping
+          tdActivity.innerText = item;
+
+          // doneButton diisi dengan string "Done"
+          doneButton.innerText = "Done";
+
+          // menghapus item dengan click tombol done
+          doneButton.onclick = () => {
+            const userConfirmation = confirm("yakin anda mau hapus ?");
+
+            if (userConfirmation) {
+              todoItems.splice(index, 1);
+              loadItems();
+            }
+          };
+
+          // membungkus tombol done kedalam td / table data untuk button
+          tdButton.appendChild(doneButton);
+
+          // membungkus tag td yang sudah dibuat kedalam row atau table row
+          row.appendChild(tdActivity);
+          row.appendChild(tdButton);
+
+          // membungkus row atau table row kedalan tbody
+          tbodySelector.appendChild(row);
+
+          // bentuk data nya bisa di cek ke tbody
+        });
+
+        const counterSelector = document.getElementById("todo-counter");
+        counterSelector.innerText = todoItems.length;
+      };
+
+      const addItem = () => {
+        const inputSelector = document.getElementById("todo-input");
+        const inputValue = inputSelector.value;
+
+        if (inputValue.length) {
+          todoItems.push(inputValue);
+          inputSelector.value = ""; // clear isi input
+          loadItems();
+        } else {
+          alert("masukkan item");
+        }
+      };
+
+      // event listener yang berfungsi ketika pertama kali webpage di load akan menjalankan function nya
+      window.onload = function () {
+        loadItems();
+      };
+    </script>
+  </body>
+</html>
