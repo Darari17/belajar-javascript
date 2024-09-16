@@ -75,3 +75,13 @@ const getProcessorWithRAM8 = () => {
 };
 
 console.log(getProcessorWithRAM8());
+
+// penjelasan dari function getProcessorWithRAM8:
+
+// 1. const x = yaitu menyediakan variabel yang berisi array kosong, yg akan diisi nanti
+// 2. variable handphone di looping menggunakan forEach yang mempunyai parameter i, yang dimana i akan mengambil setiap object dari array of object variable handphone
+// 3. lalu i mengambil sebuah property Variant dan melakukan sebuah looping menggunakan forEach yang mempunyai parameter ram.
+// 4. lalu, dibuat if dengan kondisi jika Ram === 8 maka:
+// 5. object yang berisikan sesuai dengan kondisi diatas, maka property prosesor akan di push kedalam variable x
+// 6. lalu mengembalikan variable x yang sudah diisi sebelumnya.
+// 7. console.log function getProcessorWithRAM8
