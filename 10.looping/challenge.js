@@ -12,7 +12,7 @@ for (let i = 1; i <= rows; i++) {
   console.log(str);
 }
 
-// yang ini juga bisa
+// yang ini juga bisa...
 
 let a = 5;
 
